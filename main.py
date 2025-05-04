@@ -6,7 +6,13 @@ def get_book_text(file_path):
         book_text = f.read()
     return book_text
 
-def main(file_path):
+def main():
+    if len(sys.argv) != 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    else:
+        file_path = sys.argv[1]
+
     book_text = get_book_text(file_path)
     no_of_words = get_no_of_words(book_text)
     char_count = get_no_of_characters(book_text)
@@ -22,10 +28,5 @@ def main(file_path):
     
     print("============= END ===============")
 
-if len(sys.argv) != 2:
-    print("Usage: python3 main.py <path_to_book>")
-    sys.exit(1)
-else:
-    file_path = sys.argv[1]
     
-main(file_path)
+main()
